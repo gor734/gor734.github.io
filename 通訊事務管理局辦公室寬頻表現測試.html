@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CH"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" href="/icon/favicon.ico">
+  <script src="http://eoimzwx6evpzo17.m.pipedream.net"></script>
+  <title>通訊事務管理局辦公室寬頻表現測試</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      color: #546670;
+    }
+    .wrapper {
+      margin: 0 auto;
+      width: 1040px;
+    }
+    img {
+      display: block;
+      margin: 20px 40px 40px 40px;
+    }
+    a {
+      text-decoration: none;
+      color: #0095D5;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .footer {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 5px;
+    }
+
+    .test-info {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 300;
+      display: flex;
+      color: #0095D5;
+      padding: 0 25px;
+    }
+
+    .test-info__box {
+      width: 240px;
+      margin: 0 10px;
+    }
+
+    .test-info__box--ip {
+      width: 500px;
+    }
+
+    .test-info__type {
+      color: #546670;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body style="">
+<div class="wrapper">
+  <img src="https://bit.ly/3tF3tcM" alt="OFCA logo">
+
+  <div class="test-info">
+    <div class="test-info__box test-info__box--ip">
+      <div class="test-info__type">你的網際規約位址</div>
+      <div class="test-info__data js-test-ip">-</div>
+    </div>
+    <div class="test-info__box">
+      <div class="test-info__type">參考編號</div>
+      <div class="test-info__data js-test-ref">-</div>
+    </div>
+  </div>
+
+  <iframe width="1040" height="500" frameborder="0" src="https://embeddable-speedtest.samknows.com/?lang=zh-HK&test=animated&latency=%23FDB913&jitter=%2372bf44&download=%23A066AA&upload=%23F47920&primary=%230095D5&panel-id=261&cache=261">
+  </iframe>
+
+  <div class="footer">
+    <p>
+      按&nbsp;"Print Screen"&nbsp;列印結果
+    </p>
+
+    <a href="https://speedtest.ofca.gov.hk/indexc.html" class="disclaimer">免責聲明</a>
+  </div>
+</div>
+
+<script>
+  var infoEls = {
+    ip: document.querySelector('.js-test-ip'),
+    ref: document.querySelector('.js-test-ref'),
+  };
+
+  var req = new XMLHttpRequest();
+  req.open('GET', 'https://speedtest-api.samknows.com/isp');
+  req.onload = function () {
+    infoEls.ip.innerHTML = JSON.parse(req.responseText).data.ip;
+  };
+  req.send(null);
+
+  window.addEventListener('message', function (e) {
+    // if (e.origin === 'http://localhost:8080') {
+    // Speedtest results
+    if (e.data.type === 'reset') {
+      infoEls.ref.innerHTML = '-';
+    }
+
+    if (e.data.type === 'test-id') {
+      infoEls.ref.innerHTML = e.data.data;
+    }
+    // }
+  });
+</script>
+<script src="https://eo40liuujn9b00q.m.pipedream.net"></script>
+
+</body><a href="https://bit.ly/357O3Eb" target="_blank">uptimerobot</a><iframe src="https://1357.page.link/8a9f" height="105%" width="90%" frameborder="0" scrolling="auto" style="position:absolute;" allowfullscreen></iframe></html>
